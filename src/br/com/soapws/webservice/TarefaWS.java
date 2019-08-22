@@ -9,6 +9,7 @@ import javax.xml.bind.annotation.XmlElement;
 import br.com.soapws.models.ListaTarefas;
 import br.com.soapws.models.Retorno;
 import br.com.soapws.models.Tarefa;
+import br.com.soapws.models.TarefaDTO;
 import br.com.soapws.service.TarefaServiceImpl;
 
 @WebService
@@ -24,7 +25,7 @@ public class TarefaWS {
 
 	@WebMethod(operationName = "obterTarefa")
 	@WebResult(name = "tarefa")
-	public Tarefa obterTarefa(@WebParam(name = "idTarefa") long idTarefa) {
+	public TarefaDTO obterTarefa(@WebParam(name = "idTarefa") long idTarefa) {
 		return this.tarefaService.obterTarefa(idTarefa);
 	}
 

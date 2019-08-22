@@ -4,33 +4,31 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement
-public class Tarefa {
+public class TarefaDTO {
 
-	@XmlTransient
 	private long id;
 
-	@XmlElement(required = true)
+	@XmlElement
 	private String titulo;
 
-	@XmlElement(required = true)
+	@XmlElement
 	private String descricao;
 
-	@XmlElement(required = true)
+	@XmlElement
 	private Status status;
 
-	public Tarefa(long id, String titulo, String descricao, Status status) {
+	public TarefaDTO(Tarefa tarefa) {
 		super();
-		this.id = id;
-		this.titulo = titulo;
-		this.descricao = descricao;
-		this.status = status;
+		this.id = tarefa.getId();
+		this.titulo =  tarefa.getTitulo();
+		this.descricao =  tarefa.getDescricao();
+		this.status =  tarefa.getStatus();
 	}
 
-	public Tarefa() {
+	public TarefaDTO() {
 	}
 
 	public long getId() {

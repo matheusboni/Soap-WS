@@ -20,8 +20,10 @@ public class TarefaDAO {
 		tarefas.add(new Tarefa(r.nextLong(), "Trabalho da faculdade", "Fazer projeto para a próxima aula de arquitetura de software", Status.Em_Andamento));
 	}
 
-	public void adicionarTarefa(Tarefa tarefa) {
+	public long adicionarTarefa(Tarefa tarefa) {
+		tarefa.setId(r.nextLong());
 		tarefas.add(tarefa);
+		return tarefa.getId();
 	}
 
 	public Tarefa obterTarefa(long idTarefa) {

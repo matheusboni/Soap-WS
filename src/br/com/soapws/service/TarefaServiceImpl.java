@@ -4,6 +4,7 @@ import br.com.soapws.dao.TarefaDAO;
 import br.com.soapws.models.ListaTarefas;
 import br.com.soapws.models.Retorno;
 import br.com.soapws.models.Tarefa;
+import br.com.soapws.models.TarefaDTO;
 
 public class TarefaServiceImpl implements TarefaService{
 
@@ -13,14 +14,14 @@ public class TarefaServiceImpl implements TarefaService{
 
 	@Override
 	public Retorno adicionarTarefa(Tarefa tarefa) {
-		tarefaDao.adicionarTarefa(tarefa);
-		retorno = new Retorno(201, "Tarefa adicionada");
+		long id = tarefaDao.adicionarTarefa(tarefa);
+		retorno = new Retorno(201, "Tarefa adicionada id: " + id);
 		return retorno;
 	}
 
 	@Override
-	public Tarefa obterTarefa(long idTarefa) {
-		return tarefaDao.obterTarefa(idTarefa);
+	public TarefaDTO obterTarefa(long idTarefa) {
+		return new TarefaDTO(tarefaDao.obterTarefa(idTarefa));
 	}
 
 	@Override
