@@ -1,8 +1,7 @@
 package br.com.soapws.service;
 
-import java.util.List;
-
 import br.com.soapws.dao.TarefaDAO;
+import br.com.soapws.models.ListaTarefas;
 import br.com.soapws.models.Retorno;
 import br.com.soapws.models.Tarefa;
 
@@ -32,8 +31,8 @@ public class TarefaServiceImpl implements TarefaService{
 	}
 
 	@Override
-	public List<Tarefa> obterTarefas() {
-		return tarefaDao.obterTarefas();
+	public ListaTarefas obterTarefas() {
+		return new ListaTarefas(tarefaDao.obterTarefas());
 	}
 
 }

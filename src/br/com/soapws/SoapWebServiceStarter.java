@@ -5,7 +5,7 @@ import javax.xml.ws.Endpoint;
 import br.com.soapws.dao.TarefaDAO;
 import br.com.soapws.webservice.TarefaWS;
 
-public class SoapWebServiceApplication {
+public class SoapWebServiceStarter {
 
 	public static void main(String[] args) {
 
@@ -18,5 +18,5 @@ public class SoapWebServiceApplication {
 
 		Endpoint.publish(URL, implementacaoWS);
 	}
-	
+
 }

@@ -1,12 +1,12 @@
 package br.com.soapws.webservice;
 
-import java.util.List;
-
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
+import javax.xml.bind.annotation.XmlElement;
 
+import br.com.soapws.models.ListaTarefas;
 import br.com.soapws.models.Retorno;
 import br.com.soapws.models.Tarefa;
 import br.com.soapws.service.TarefaServiceImpl;
@@ -18,7 +18,7 @@ public class TarefaWS {
 
 	@WebMethod(operationName = "cadastroTarefa")
 	@WebResult(name = "retorno")
-	public Retorno adicionarTarefa(Tarefa tarefa) {
+	public Retorno adicionarTarefa(@XmlElement(required = true) Tarefa tarefa) {
 		return this.tarefaService.adicionarTarefa(tarefa);
 	}
 
@@ -35,8 +35,8 @@ public class TarefaWS {
 	}
 
 	@WebMethod(operationName = "todasTarefas")
-	@WebResult(name = "tarefa")
-	public List<Tarefa> obterTarefas() {
+	@WebResult(name = "tarefas")
+	public ListaTarefas obterTarefas() {
 		return this.tarefaService.obterTarefas();
 	}
 

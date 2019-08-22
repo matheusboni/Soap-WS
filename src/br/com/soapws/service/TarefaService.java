@@ -1,7 +1,6 @@
 package br.com.soapws.service;
 
-import java.util.List;
-
+import br.com.soapws.models.ListaTarefas;
 import br.com.soapws.models.Retorno;
 import br.com.soapws.models.Tarefa;
 
@@ -13,6 +12,6 @@ public interface TarefaService {
 
 	public Retorno removerTarefa(long idTarefa);
 
-	public List<Tarefa> obterTarefas();
+	public ListaTarefas obterTarefas();
 	
 }
